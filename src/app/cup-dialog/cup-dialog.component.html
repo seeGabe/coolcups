@@ -1,0 +1,30 @@
+
+<div class="dialog mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h3 class="mdl-card__title-text">Edit Cup</h3>
+  </div>
+  <form [formGroup]="dialogForm" (ngSubmit)="save()" class="mdl-card__supporting-text">
+
+    <div class="mdl-textfield mdl-js-textfield">
+      <input class="mdl-textfield__input" type="text" formControlName="cupname">
+    </div>
+    
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <select class="mdl-textfield__input" placeholder="Beverage" formControlName="cuptype">
+      <option value="coffee">Coffee</option>
+      <option value="tea">Tea</option>
+      <option value="water">Water</option>
+      <option value="beer">Beer</option>
+    </select>
+    </div>
+    <div>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+        Save
+      </button>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="close()">
+        Close
+      </button>
+    </div>
+    
+  </form>
+</div>

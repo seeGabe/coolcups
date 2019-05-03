@@ -1,0 +1,56 @@
+.login {
+  width: 400px;
+  margin: 30px auto;
+  font-size: 16px;
+}
+
+.help-block {
+  color: red;
+  padding: 12px 0px;
+}
+
+form input {
+  box-sizing: border-box;
+  display: block;
+  background: white;
+  border-color: lightgray;
+  color: darkslategray;
+  width: 100%;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.9em;
+}
+/* 
+.login-header,
+.login p {
+}
+
+.login-header {
+  background: purple;
+  padding: 20px;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+}
+
+.login-container {
+  background: whitesmoke;
+  padding: 12px;
+}
+
+.login p {
+  padding: 12px 0px;
+}
+ */
+
+
+.login input:focus {
+  border-color: gray;
+}
+
+.login button[type="submit"]:hover {
+  background: purple;
+}

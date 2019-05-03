@@ -1,0 +1,30 @@
+<div class="newcup mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h3 class="mdl-card__title-text">Create Cup</h3>
+  </div>
+  <form [formGroup]="newCupForm" (ngSubmit)="addNewCup(newName,newType)" class="mdl-card__supporting-text">
+
+    <input type="text" placeholder="Name" class="form-control" formControlName="name">
+    <div class="help-block">
+      <span *ngIf="formControls.name.errors">name required.</span>
+    </div>
+    <select formControlName="type">
+      <option>Select Beverage</option>
+      <option value="coffee">Coffee</option>
+      <option value="tea">Tea</option>
+      <option value="water">Water</option>
+      <option value="beer">Beer</option>
+    </select>
+    <div class="help-block">
+      <span *ngIf="formControls.type.errors">fluids required.</span>
+    </div>
+    <div>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+        Add
+      </button>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  (click)="toDashboard()">
+        Go Back
+      </button>
+    </div>
+  </form>
+</div>

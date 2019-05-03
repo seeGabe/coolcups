@@ -1,0 +1,18 @@
+<!-- <div (click)="updateMe(cup)"> -->
+<div>
+  <div class="mdl-card__title" (click)="drinkMe()">
+    <img [src]="imagePath"/>
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{ cup.name }}
+  </div>
+  
+  <div class="mdl-card__actions mdl-card--border">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="deleteCup()">
+      <i class="material-icons">cancel</i>
+    </button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="fillCup()">
+      <i class="material-icons">arrow_upward</i>
+    </button>
+  </div>
+</div>
