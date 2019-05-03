@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { MatDialog, MatDialogConfig } from "@angular/material";
 
 import { AuthenticateService } from "../services/authenticate.service";
 import { StorageService } from "../services/storage.service";
 import { Cup } from '../models/cup';
-import { CupDialogComponent } from "../cup-dialog/cup-dialog.component";
 
 @Component({
   selector: 'app-cupboard',
@@ -19,24 +17,11 @@ export class CupboardComponent implements OnInit {
   
   constructor(private _authSvc: AuthenticateService,
               private _storeSvc: StorageService,
-              private _dialog: MatDialog,
               private _router: Router) { }
 
   ngOnInit() {
     this.getCups();
     this.countMyCups();
-  }
-
-  openDialog() {
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.data = {
-      cupname: this.cups[0].name,
-      cuptype: this.cups[0].type
-    };
-    this._dialog.open(CupDialogComponent, dialogConfig);
   }
 
   logout() {

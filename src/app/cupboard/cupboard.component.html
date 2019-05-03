@@ -2,13 +2,13 @@
   <h2>
     Your {{cupCount}} Cups
   </h2>
-  <button (click)="openDialog()">open</button>
   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="logout()">Log out</button>
   <div class="mdl-grid">
     <div *ngFor="let cup of cups; index as i" class="mdl-card mdl-cell mdl-cell--4-col">
 
       <app-cup [cup]="cup" [index]="i" (updateCount)="countMyCups($event)">
       </app-cup>
+      
     </div>
   </div>
 
