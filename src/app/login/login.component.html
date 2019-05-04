@@ -1,19 +1,20 @@
 <div class="login mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title">
-    <h3 class="mdl-card__title-text">Login to Cups</h3>
+    <h3 class="mdl-card__title-text">Enter your credentials</h3>
   </div>
   <form [formGroup]="loginForm" (ngSubmit)="login()" class="mdl-card__supporting-text">
-
-    <input type="text" placeholder="Username" formControlName="username">
-    <div class="help-block">
-      <span *ngIf="formControls.username.errors">username required.</span>
+    <div class="mdl-textfield mdl-js-textfield">
+      <input class="mdl-textfield__input" type="text" placeholder="Username" formControlName="username">
     </div>
-
-    <input type="password" placeholder="Password" formControlName="password">
     <div class="help-block">
-      <span *ngIf="formControls.password.errors">password required.</span>
+      <span *ngIf="formControls.username.errors">* username required.</span>
     </div>
-
+    <div class="mdl-textfield mdl-js-textfield">
+      <input class="mdl-textfield__input" type="password" placeholder="Password" formControlName="password">
+    </div>
+    <div class="help-block">
+      <span *ngIf="formControls.password.errors">* password required.</span>
+    </div>
     <div>
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
         Log in

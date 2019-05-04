@@ -2,7 +2,7 @@
   <div class="mdl-card__title">
     <h3 class="mdl-card__title-text">Create Cup</h3>
   </div>
-  <form [formGroup]="newCupForm" (ngSubmit)="addNewCup(newName,newType)" class="mdl-card__supporting-text">
+  <form [formGroup]="newCupForm" (ngSubmit)="addNewCup(newCupForm.value)" class="mdl-card__supporting-text">
     <div class="mdl-textfield mdl-js-textfield">
       <input class="mdl-textfield__input" type="text" placeholder="Cup Name" formControlName="name">
     </div>
@@ -21,6 +21,10 @@
     <div class="help-block">
       <span *ngIf="formControls.type.errors">fluids required.</span>
     </div>
+    <label class="mdl-checkbox mdl-js-checkbox" for="checkbox-1">
+      <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" formControlName="full">
+      <span class="mdl-checkbox__label">Fill up my cup, please.</span>
+    </label>    
     <div>
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
         Add

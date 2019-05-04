@@ -3,3 +3,7 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
+.mdl-card__actions button{
+    margin: 16px 8px 0px;
+}

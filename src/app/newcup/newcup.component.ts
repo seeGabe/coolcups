@@ -24,7 +24,8 @@ export class NewcupComponent implements OnInit {
   ngOnInit() {
     this.newCupForm = this._fb.group({
       name: ['', Validators.required],
-      type: ['', Validators.required]
+      type: ['', Validators.required],
+      full: ['']
     });
   }
 
@@ -32,10 +33,13 @@ export class NewcupComponent implements OnInit {
     if (this.newCupForm.invalid) {
       return;
     }
+    if (this.newCupForm.controls.full.value === null) {
+      this.newCupForm.controls.full.setValue(false);
+    }
     this._storeSvc.addCup({
-      name:this.newCupForm.controls.name.value,
-      type:this.newCupForm.controls.type.value,
-      full: true
+      name: this.newCupForm.controls.name.value,
+      type: this.newCupForm.controls.type.value,
+      full: this.newCupForm.controls.full.value
     });
     this.newCupForm.reset();
     return false;

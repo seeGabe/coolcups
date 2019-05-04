@@ -1,7 +1,6 @@
-.card {
-    width: fit-content;
-    border: 1px solid black;
-    padding: 20px;
+.mdl-card {
+        min-width: 264px;
+        max-width: 264px;
 }
 
 button.addBtn {
@@ -9,8 +8,4 @@ button.addBtn {
     right: 30px;
     bottom: 20px;
     z-index: 10;
-}
-
-.mdl-card__actions button{
-    margin: 0px 8px;
 }
