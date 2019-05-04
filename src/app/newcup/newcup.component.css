@@ -9,7 +9,7 @@
     padding: 12px 0px;
   }
   
-  form input,
+  /* form input,
   form select {
     box-sizing: border-box;
     display: block;
@@ -22,7 +22,7 @@
     outline: 0;
     font-family: inherit;
     font-size: 0.9em;
-  }
+  } */
   /* 
   .newcup-header,
   .newcup p {
