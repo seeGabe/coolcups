@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
@@ -9,7 +9,7 @@ import { Cup } from "../models/cup";
   templateUrl: './cup-dialog.component.html',
   styleUrls: ['./cup-dialog.component.css']
 })
-export class CupDialogComponent implements OnInit {
+export class CupDialogComponent {
 
   dialogForm: FormGroup;
 
@@ -20,21 +20,19 @@ export class CupDialogComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     private dialogRef: MatDialogRef<CupDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) data) {
+    @Inject(MAT_DIALOG_DATA) public data:Cup) {
       this.dialogForm = this._fb.group({
-        cupname: [data.cupname, Validators.required],
-        cuptype: [data.cuptype, Validators.required]
+        name: [data.name, Validators.required],
+        type: [data.type, Validators.required]
       });
-
   }
-
-  ngOnInit() { }
 
   save() {
     this.dialogRef.close(this.dialogForm.value);
   }
 
-  close() {
+  close(): void {
     this.dialogRef.close();
   }
+  
 }

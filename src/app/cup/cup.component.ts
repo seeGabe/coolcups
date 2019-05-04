@@ -2,9 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Cup } from '../models/cup';
 import { StorageService } from "../services/storage.service";
-
-import { CupDialogComponent } from "../cup-dialog/cup-dialog.component";
-import { MatDialog, MatDialogConfig } from "@angular/material";
+import { DialogCommService } from '../services/dialog-comm.service';
 
 @Component({
   selector: 'app-cup',
@@ -22,22 +20,24 @@ export class CupComponent implements OnInit {
   imagePath: string;
   isfull: string;
   constructor(private _storeSvc: StorageService,
-    private _dialog: MatDialog) {}
+              private _commSvc: DialogCommService) {}
 
   ngOnInit() {
     this.setImagePath();
   }
 
   openDialog() {
-    const dialogConfig = new MatDialogConfig();
+    this._commSvc.openDialog(this.cup).subscribe(data => {
+      if (data) {
 
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.data = {
-      cupname: this.cup.name,
-      cuptype: this.cup.type
-    };
-    this._dialog.open(CupDialogComponent, dialogConfig);
+        console.log('thiscupb4', this.cup);
+        this.cup.name = data.name;
+        this.cup.type = data.type;
+        this.updateMe(this.cup);
+
+      }
+
+    });
   }
 
   updateMe(c:Cup) {

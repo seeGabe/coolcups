@@ -3,14 +3,14 @@
   <div class="mdl-card__title">
     <h3 class="mdl-card__title-text">Edit Cup</h3>
   </div>
-  <form [formGroup]="dialogForm" (ngSubmit)="save()" class="mdl-card__supporting-text">
+  <form [formGroup]="dialogForm" class="mdl-card__supporting-text">
 
     <div class="mdl-textfield mdl-js-textfield">
-      <input class="mdl-textfield__input" type="text" formControlName="cupname">
+      <input class="mdl-textfield__input" type="text" formControlName="name">
     </div>
     
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <select class="mdl-textfield__input" placeholder="Beverage" formControlName="cuptype">
+    <select class="mdl-textfield__input" formControlName="type">
       <option value="coffee">Coffee</option>
       <option value="tea">Tea</option>
       <option value="water">Water</option>
@@ -18,10 +18,10 @@
     </select>
     </div>
     <div>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" [mat-dialog-close]="dialogForm.value" type="submit">
         Save
       </button>
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="close()">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="close()" type="button">
         Close
       </button>
     </div>
