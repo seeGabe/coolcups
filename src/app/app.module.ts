@@ -11,6 +11,7 @@ import { CupboardComponent } from './cupboard/cupboard.component';
 import { CupComponent } from './cup/cup.component';
 import { NewcupComponent } from './newcup/newcup.component';
 import { CupDialogComponent } from "./cup-dialog/cup-dialog.component";
+import { DialogCommService } from './services/dialog-comm.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CupDialogComponent } from "./cup-dialog/cup-dialog.component";
     MatDialogModule,
     ReactiveFormsModule
   ],
+  providers: [DialogCommService],
   entryComponents: [CupDialogComponent],
   bootstrap: [AppComponent]
 })
