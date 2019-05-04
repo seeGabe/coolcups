@@ -19,6 +19,7 @@ export class CupComponent implements OnInit {
 
   imagePath: string;
   isfull: string;
+
   constructor(private _storeSvc: StorageService,
               private _commSvc: DialogCommService) {}
 
@@ -29,12 +30,9 @@ export class CupComponent implements OnInit {
   openDialog() {
     this._commSvc.openDialog(this.cup).subscribe(data => {
       if (data) {
-
-        console.log('thiscupb4', this.cup);
         this.cup.name = data.name;
         this.cup.type = data.type;
         this.updateMe(this.cup);
-
       }
 
     });
@@ -42,12 +40,12 @@ export class CupComponent implements OnInit {
 
   updateMe(c:Cup) {
     this._storeSvc.updateCup(this.index, c);
+    this.setImagePath();
   }
 
   drinkMe(){
     if (window.confirm('drink it down?')) {
       this.cup.full = false;
-      this.setImagePath();
       this.updateMe(this.cup);
     }
   }
@@ -68,7 +66,6 @@ export class CupComponent implements OnInit {
     if (window.confirm('fill this cup?')) {
       this.cup.full = true;
       this.updateMe(this.cup);
-      this.setImagePath();
     }
   }
 }
