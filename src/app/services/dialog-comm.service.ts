@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { MatDialog } from '@angular/material';
-import { CupDialogComponent } from "../cup-dialog/cup-dialog.component";
+import { CupDialogComponent } from '../cup-dialog/cup-dialog.component';
 import { Cup } from '../models/cup';
 
 @Injectable()

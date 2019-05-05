@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
-import { AuthenticateService } from "../services/authenticate.service";
-import { StorageService } from "../services/storage.service";
+import { AuthenticateService } from '../services/authenticate.service';
+import { StorageService } from '../services/storage.service';
 import { Cup } from '../models/cup';
 
 @Component({

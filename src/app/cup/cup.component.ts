@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Cup } from '../models/cup';
-import { StorageService } from "../services/storage.service";
+import { StorageService } from '../services/storage.service';
 import { DialogCommService } from '../services/dialog-comm.service';
 
 @Component({
@@ -11,17 +11,17 @@ import { DialogCommService } from '../services/dialog-comm.service';
 })
 export class CupComponent implements OnInit {
 
-  @Input() cup: Cup; 
-  
+  @Input() cup: Cup;
+
   @Input() index: number;
-  
+
   @Output() updateCount = new EventEmitter<string>();
 
   imagePath: string;
   isfull: string;
 
   constructor(private _storeSvc: StorageService,
-              private _commSvc: DialogCommService) {}
+              private _commSvc: DialogCommService) { }
 
   ngOnInit() {
     this.setImagePath();
@@ -34,16 +34,15 @@ export class CupComponent implements OnInit {
         this.cup.type = data.type;
         this.updateMe(this.cup);
       }
-
     });
   }
 
-  updateMe(c:Cup) {
+  updateMe(c: Cup) {
     this._storeSvc.updateCup(this.index, c);
     this.setImagePath();
   }
 
-  drinkMe(){
+  drinkMe() {
     if (window.confirm('drink it down?')) {
       this.cup.full = false;
       this.updateMe(this.cup);
@@ -52,9 +51,9 @@ export class CupComponent implements OnInit {
 
   setImagePath() {
     this.isfull = this.cup.full ? 'full' : 'empty';
-    this.imagePath = '../../assets/img/Cup-'+this.cup.type+'-'+this.isfull+'.png';
+    this.imagePath = '../../assets/img/Cup-' + this.cup.type + '-' + this.isfull + '.png';
   }
-  
+
   deleteCup() {
     if (window.confirm('delete this cup?')) {
       this._storeSvc.deleteCup(this.cup);

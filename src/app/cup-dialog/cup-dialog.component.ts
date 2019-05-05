@@ -1,9 +1,9 @@
 import { Component, Inject } from '@angular/core';
 
-import { FormBuilder, Validators, FormGroup } from "@angular/forms";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
-import { Cup } from "../models/cup";
+import { Cup } from '../models/cup';
 @Component({
   selector: 'app-cup-dialog',
   templateUrl: './cup-dialog.component.html',
