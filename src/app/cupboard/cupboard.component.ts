@@ -42,5 +42,4 @@ export class CupboardComponent implements OnInit {
     this.cupCount = this.cups.length;
   }
 
-
 }
