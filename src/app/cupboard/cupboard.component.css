@@ -1,6 +1,5 @@
 .mdl-card {
-        min-width: 264px;
-        max-width: 264px;
+    width: 264px;
 }
 
 button.addBtn {
